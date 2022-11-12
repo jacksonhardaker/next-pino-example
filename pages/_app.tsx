@@ -1,6 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppType, AppContext } from "next/app";
+import NextApp from "next/app";
+import { logger } from "../src/middleware/logger";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App: AppType = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+};
+
+App.getInitialProps = async (appContext: AppContext) => {
+  const appProps = await NextApp.getInitialProps(appContext);
+  const { req, res } = appContext.ctx;
+
+  if (req && res) {
+    logger(req, res);
+  }
+
+  return appProps;
+};
+
+export default App;
