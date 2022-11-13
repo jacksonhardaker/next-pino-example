@@ -14,12 +14,14 @@ const logger = pino({
           type: "application/json",
         };
         const { userAgent, deviceMemory, connection } = window.navigator;
+        const { href } = window.location;
         navigator.sendBeacon(
           "/api/log",
           new Blob(
             [
               JSON.stringify({
                 data,
+                href,
                 userAgent,
                 deviceMemory,
                 connection: {
