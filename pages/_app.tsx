@@ -12,7 +12,7 @@ App.getInitialProps = async (appContext: AppContext) => {
   const { req, res } = appContext.ctx;
 
   if (req && res) {
-    logger(req, res);
+    logger?.(req, res);
   }
 
   return appProps;
