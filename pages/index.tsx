@@ -23,6 +23,13 @@ export default function Home() {
         >
           Click Me
         </button>
+        <button
+          onClick={() => {
+            throw Error("Uh oh: 💣");
+          }}
+        >
+          Cause an Error
+        </button>
       </main>
     </div>
   );
