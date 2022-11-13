@@ -8,7 +8,7 @@ const logger = pino({
     transmit: {
       level: "info",
       send: (level, logEvent) => {
-        const data = logEvent.messages[0];
+        const body = logEvent.messages[0];
 
         const headers = {
           type: "application/json",
@@ -20,7 +20,7 @@ const logger = pino({
           new Blob(
             [
               JSON.stringify({
-                data,
+                body,
                 href,
                 userAgent,
                 deviceMemory,
