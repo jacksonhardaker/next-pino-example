@@ -6,18 +6,16 @@ type Data = {
   name: string;
 };
 
-withLogging;
-
 export default withLogging(
   (req: NextApiRequest, res: NextApiResponse<Data>) => {
     try {
       if (Math.random() > 0.8) {
-        throw Error('Boom');
+        throw Error("Boom");
       }
       res.status(200).json({ name: "John Doe" });
     } catch (error) {
       req.log.error(error);
-      res.status(500).end();
+      res.status(500).end(error);
     }
   }
 );
