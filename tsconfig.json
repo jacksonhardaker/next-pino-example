@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["./node_modules/network-information-types", "./index.d.ts"]
+    "types": ["./node_modules/network-information-types"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
