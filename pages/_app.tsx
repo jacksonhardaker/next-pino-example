@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppType, AppContext } from "next/app";
 import NextApp from "next/app";
-import { logger } from "../src/middleware/logger";
+import { logger } from "../src/logging/server";
 
 const App: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
