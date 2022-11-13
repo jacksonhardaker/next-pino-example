@@ -30,6 +30,15 @@ export default function Home() {
         >
           Cause an Error
         </button>
+        <button
+          onClick={() => {
+            new Promise(() => {
+              throw Error("I promise to 💣");
+            });
+          }}
+        >
+          Cause UnresolvedPromise
+        </button>
       </main>
     </div>
   );
