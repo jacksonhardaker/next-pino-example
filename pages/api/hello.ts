@@ -9,13 +9,12 @@ type Data = {
 export default withLogging(
   (req: NextApiRequest, res: NextApiResponse<Data>) => {
     try {
-      if (Math.random() > 0.8) {
+      if (Math.random() > 0.5) {
         throw Error("Boom");
       }
       res.status(200).json({ name: "John Doe" });
     } catch (error) {
-      req.log.error(error);
-      res.status(500).end(error);
+      res.status(500).end();
     }
   }
 );
